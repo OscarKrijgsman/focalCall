@@ -8,3 +8,16 @@ To identify somatic focal copy number aberrations (CNAs) in cancer specimens and
 The tools described here will be made available through the Bioconductor website after final revisions are approved. 
 
 The script Example_run.R describes the complete analysis of a dataset available in GEO (GSE34575) and published by Bierkens et al. (2013) Focal aberrations indicate EYA2 and hsa-mir-375 as oncogene and tumor suppressor gene in cervical carcinogenesis. Genes, Chromosomes and Cancer. 
+
+
+Requirements for focalCall:
+CGHcall and associated packages available from BioConductor [Wiel et al. 2011].
+
+Installation of the package follows standard R installation guidelines:
+UNIX/LINUX/MAC:
+R CMD install focalCall_0.0.99.tar.gz
+
+
+References:
+van de Wiel M.A. et al. (2011) Preprocessing and downstream analysis of microarray DNA copy number profiles. Brief Bioinform., 12:10-21. 
+Bierkens M. (2013) Focal aberrations indicate EYA2 and hsa-miR-375 as oncogene and tumor suppressor in cervical carcinogenesis. Genes Chromosomes Cancer, 52:56-68.
