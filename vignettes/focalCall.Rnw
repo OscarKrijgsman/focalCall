@@ -1,0 +1,117 @@
+%\VignetteIndexEntry{focalCall}
+%\VignetteDepends{}
+%\VignetteKeywords{Calling aberrations for array CGH tumor profiles.}
+%\VignettePackage{focalCall}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage[authoryear,round]{natbib}
+\usepackage{hyperref}
+\SweaveOpts{echo=FALSE}
+
+\begin{document}
+
+\setkeys{Gin}{width=0.99\textwidth}
+
+\title{\bf FocalCall: An R package for the annotation of focal copy number aberrations.}
+
+\author{Oscar Krijgsman}
+
+\maketitle
+
+\begin{center}
+Department of Pathology\\
+VU University Medical Center
+the Netherlands
+Current adres:
+Department of Molecular Oncology
+Netherlands Cancer Institute 
+the Netherlands
+\end{center}
+
+\begin{center}
+
+{\tt o.krijgsman@vumc.nl}
+{\tt o.krijgsman@nki.nl}
+\end{center}
+
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overview}
+
+To identify somatic focal copy number aberrations (CNAs) in cancer specimens and 
+distinguish them from germ-line copy number variations (CNVs) we developed a software 
+package named, FocalCall. FocalCall permits user-defined size cut-offs to recognize focal 
+aberrations and builds on established array CGH segmentation and calling algorithms. 
+To differentiate CNAs from CNVs the algorithm can either make use of a matched normal 
+reference signal or, if this is not available, an external CNV track. FocalCall 
+furthermore differentiates between homozygous and hemizygous deletions as well as gains 
+and amplifications and is applicable to high-resolution array and sequencing data. 
+
+\section{Example}
+
+In this section we will use focalCall to analyse the dataset previously published by 
+\citep{Bierkens} and preprocessed using \citep{CGHcall}. The example set used here only contains complete chromosome 2. 
+For the other chromosomes only a small portion of the CGH probes are included. The 
+complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
+accession number GSE34575.
+First, we load the required packages and the data:
+
+<<echo=TRUE,print=FALSE>>=
+library(focalCall)
+data(BierkensCNA)
+@
+
+\noindent
+Next, we apply the {\tt focalCall} function which:
+\begin{itemize}
+\item detects all aberrations smaller than {\tt focalSize} in Mb in the tumor data (CGHset)
+\item calculates peak regions for each genomic region where recurrent focal CNAs are detected
+\item compare each peak region to known copy number variants (CNVset)
+\item returns calls object with calls for focal CNA included
+\item report all focal CNAs as figures and tables
+\end{itemize}
+
+<<echo=TRUE,print=FALSE>>=
+calls_focals<-focalCall(CGHset, CNVset, focalSize = 3, minFreq=2)
+@
+
+
+\noindent
+A frequency plot of all aberrations and all focal aberrations can be generated using {\tt FreqPlot} and {\tt FreqPlotfocal}.
+
+\begin{center}
+<<fig=TRUE,echo=TRUE>>=
+FreqPlot(calls_focals, header="FrequencyPlot all aberrations")
+@
+\end{center}
+
+
+\begin{center}
+<<fig=TRUE,echo=TRUE>>=
+FreqPlotfocal(calls_focals, header="FrequencyPlot all aberrations")
+@
+\end{center}
+@
+
+\pagebreak
+\noindent
+Alternatively, we can generate files for visualisation in IGV with {\tt igvFiles}. The files will be written 
+to the home directory and can be loaded in IGV directly. 
+
+\begin{center}
+<<fig=TRUE,echo=TRUE>>=
+igvFiles(calls_focals)
+@
+\end{center}
+
+
+\pagebreak
+%\newpage
+\bibliographystyle{apalike}
+\bibliography{CGHcall}
+
+\end{document}

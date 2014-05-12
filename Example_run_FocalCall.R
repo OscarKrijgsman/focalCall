@@ -12,12 +12,21 @@ library(focalCall)
 ## FocalCall was used to identify genes on focal aberrations of which multiple were validated in this study.
 Bierkens_CGH<-getGEO("GSE34575")
 
+ProbeID<-Bierkens_CGH$GSE34575_series_matrix.txt.gz@featureData@data$ProbeName
+Genomic_location<-Bierkens_CGH$GSE34575_series_matrix.txt.gz@featureData@data$SystematicName
 
+Chromosome<-gsub("chr","",matrix(unlist(strsplit(as.character(Genomic_location), ":")), ncol=2, byrow=T)[,1])
+bpstart<-strsplit(matrix(unlist(strsplit(as.character(Genomic_location), ":")), ncol=2, byrow=T)[,2], ":")
+CGH_data<-exprs(Bierkens_CGH$GSE34575_series_matrix.txt.gz)
+
+# Generate Stanford file
+
+Bierkens_data<-data.frame(ProbeID, Chromosome, bpstart, CGH_data)
 
 ## Pre-processing using CGHcall
 ## This pipeline was previously described by Wiel et al 2012. 
 
-raw <- make_cghRaw(stanford)
+raw <- make_cghRaw(Bierkens_CGH)
 prep <- preprocess(raw, maxmiss = 30, nchrom = 23)
 nor <-  normalize(prep,method = "median", smoothOutliers = TRUE)  
 
@@ -31,3 +40,5 @@ save(calls, file="calls.Rdata")
 
 ## Analysis with focalCall
 focalCall(calls)
+
+## This command will 
