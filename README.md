@@ -24,4 +24,4 @@ van de Wiel M.A. et al. (2011) Preprocessing and downstream analysis of microarr
 
 Bierkens M. et al. (2013) Focal aberrations indicate EYA2 and hsa-miR-375 as oncogene and tumor suppressor in cervical carcinogenesis. Genes Chromosomes Cancer, 52:56-68.
 
-Oscar Krijgsman et al. (2014) Focal chromosomal copy number aberrations in cancer - Hot needles in the genome stack. BBA- molecular cell research.
+Krijgsman O. et al. (2014) Focal chromosomal copy number aberrations in cancer - Hot needles in the genome stack. BBA- molecular cell research.
