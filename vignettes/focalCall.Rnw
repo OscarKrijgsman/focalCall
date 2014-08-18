@@ -11,6 +11,7 @@
 \SweaveOpts{echo=FALSE}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \setkeys{Gin}{width=0.99\textwidth}
 
@@ -33,7 +34,7 @@ the Netherlands
 \begin{center}
 
 {\tt o.krijgsman@vumc.nl}
-{\tt o.krijgsman@nki.nl}
+{\tt oscarkrijgsman@gmail.com}
 \end{center}
 
 
@@ -54,7 +55,7 @@ and amplifications and is applicable to high-resolution array and sequencing dat
 \section{Example}
 
 In this section we will use focalCall to analyse the dataset previously published by 
-\citep{Bierkens} and preprocessed using \citep{CGHcall}. The example set used here only contains complete chromosome 2. 
+Bierkens et al. (2013) and preprocessed using CGHcall by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
 For the other chromosomes only a small portion of the CGH probes are included. The 
 complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
 accession number GSE34575.
@@ -112,6 +113,6 @@ igvFiles(calls_focals)
 \pagebreak
 %\newpage
 \bibliographystyle{apalike}
-\bibliography{CGHcall}
+\bibliography{focalCall}
 
 \end{document}

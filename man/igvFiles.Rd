@@ -1,5 +1,5 @@
-\name{igvFiles.Rd}
-\alias{igvFiles.Rd}
+\name{igvFiles}
+\alias{igvFiles}
 \title{Match Ensembl genes to focal aberrations.}
 \description{
 Generates three tracks that can be loaded into IGV ().  

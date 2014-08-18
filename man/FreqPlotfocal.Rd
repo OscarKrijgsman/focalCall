@@ -1,5 +1,5 @@
-\name{FreqPlotfocal.Rd}
-\alias{FreqPlotfocal.Rd}
+\name{FreqPlotfocal}
+\alias{FreqPlotfocal}
 \title{frequency plot focal copy number aberrations.}
 \description{
 Frequency plot of focal aberrations in the dataset.  
