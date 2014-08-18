@@ -103,7 +103,7 @@ Alternatively, we can generate files for visualisation in IGV with {\tt igvFiles
 to the home directory and can be loaded in IGV directly. 
 
 \begin{center}
-<<fig=TRUE,echo=TRUE>>=
+<<echo=TRUE,print=FALSE>>=
 igvFiles(calls_focals)
 @
 \end{center}
