@@ -1,6 +1,5 @@
 \name{FreqPlot.Rd}
 \alias{FreqPlot.Rd}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{frequency plot copy number aberrations.}
 \description{
 Frequency plot of all aberrations in the dataset.  

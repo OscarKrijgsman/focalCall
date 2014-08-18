@@ -209,10 +209,6 @@ cat("Written text file to workDir...", "\n")
 save(CGHset, file="focalCall.RData")
 cat("Written 'focalCall.RData' to workDir...", "\n")
 
-# Generate IGV .bed files
-# Moved to seperate function
-# Not as standard output anymore
-#igvFiles(CGHset)
 
 ############### End analysis section ######	
 	

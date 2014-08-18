@@ -1,6 +1,5 @@
 \name{singleSample.Rd}
 \alias{singleSample.Rd}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Detection focal aberrations with 1 sample only}
 \description{
 Detection and plotting of focal aberrations and distinguish somatic from germ-line in a single sample. This function, as \code{focalCall} can be used for samples with and without patient matched normal data.

@@ -1,6 +1,5 @@
 \name{focalCall}
 \alias{focalCall}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Detection genomic focal aberrations }
 \description{
 Detection of genomic focal copy number aberrations from high-resolution arrayCGH data or shallow-Seq copy number data. 
