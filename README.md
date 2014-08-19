@@ -19,7 +19,7 @@ UNIX/LINUX/MAC:
 
 We have tried to make the FocalCall readable and its use as easy as possible. If any questions arise regarding the package, or if you want to report any bugs, please do not hesitate and contact:
 
-- [Oscar Krijgsman](mailto:o.krijgsman@nki.nl)
+- [Oscar Krijgsman](mailto:oscarkrijgsman@gmail.com)
 
 
 # References:
