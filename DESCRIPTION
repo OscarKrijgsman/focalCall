@@ -1,7 +1,7 @@
 Package: focalCall
 Type: Package
 Title: Detection of focal aberrations in DNA copy number data
-Version: 0.0.99
+Version: 1.0
 Date: 2013-06-21
 Author: Oscar Krijgsman 
 Maintainer: <oscarkrijgsman@gmail.com>
