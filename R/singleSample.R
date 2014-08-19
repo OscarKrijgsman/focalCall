@@ -126,17 +126,17 @@ for (i in 1:max(focalList_short[6])){
 # Plotting
 if (CNVcalls==TRUE){
 	
-	png(file=paste("Tumor_",colnames(calls(CGHset[,1])), ".png", sep=""),height=480, width=2*480 )
+	png(filename=paste("Tumor_",colnames(calls(CGHset[,1])), ".png", sep=""),height=480, width=2*480 )
 		plot(CGHset[,1], dotres=1, ylim=c(-2,4))
 	dev.off()
 	
-	png(file=paste("Normal_",colnames(calls(CGHset[,1])), ".png", sep=""),height=480, width=2*480 )
+	png(filename=paste("Normal_",colnames(calls(CGHset[,1])), ".png", sep=""),height=480, width=2*480 )
 		plot(CNVset[,1], dotres=1, ylim=c(-2,3))
 	dev.off()	
 
 }
 if (CNVcalls==FALSE){
-	png(file=paste("Tumor_",colnames(calls(CGHset[,1])), ".png", sep=""), height=480, width=2*480)
+	png(filename=paste("Tumor_",colnames(calls(CGHset[,1])), ".png", sep=""), height=480, width=2*480)
 		plot(CGHset[,1], dotres=1, ylim=c(-2,4))
 	dev.off()
 }
