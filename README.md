@@ -37,6 +37,8 @@ We have tried to make the FocalCall readable and its use as easy as possible. If
 
 - [Oscar Krijgsman](mailto:oscarkrijgsman@gmail.com)
 
+This package was developed in the lab of Prof Dr. Bauke Ylstra, [website] (http://www.vumc.nl/afdelingen/microarrays/).
+
 
 # References:
 van de Wiel M.A. et al. (2011) Preprocessing and downstream analysis of microarray DNA copy number profiles. Brief Bioinform., 12:10-21. 
