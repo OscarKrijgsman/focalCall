@@ -15,6 +15,22 @@ Installation of the package follows standard R installation guidelines:
 UNIX/LINUX/MAC:
 `> R CMD install focalCall_1.0.tar.gz`
 
+# Running FocalCall 
+Here we  use focalCall to analyse the dataset previously published by 
+Bierkens et al. (2013) and preprocessed using CGHcall by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
+For the other chromosomes only a small portion of the CGH probes are included. The 
+complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
+accession number GSE34575.
+
+	library(focalCall)
+	data(BierkensCNA)
+	calls_focals<-focalCall(CGHset, CNVset, focalSize = 3, minFreq=2)
+	FreqPlot(calls_focals, header="FrequencyPlot all aberrations")
+	FreqPlotfocal(calls_focals, header="FrequencyPlot all aberrations")
+	igvFiles(calls_focals)
+
+An R-vignette with more details on how to analyse this dataset is available with the package. 
+
 ## Contact
 
 We have tried to make the FocalCall readable and its use as easy as possible. If any questions arise regarding the package, or if you want to report any bugs, please do not hesitate and contact:
