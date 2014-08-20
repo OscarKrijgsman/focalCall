@@ -22,12 +22,12 @@ For the other chromosomes only a small portion of the CGH probes are included. T
 complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
 accession number GSE34575.
 
-	library(focalCall)
-	data(BierkensCNA)
-	calls_focals<-focalCall(CGHset, CNVset, focalSize = 3, minFreq=2)
-	FreqPlot(calls_focals, header="FrequencyPlot all aberrations")
-	FreqPlotfocal(calls_focals, header="FrequencyPlot all aberrations")
-	igvFiles(calls_focals)
+	> library(focalCall)
+	> data(BierkensCNA)
+	> calls_focals<-focalCall(CGHset, CNVset, focalSize = 3, minFreq=2)
+	> FreqPlot(calls_focals, header="FrequencyPlot all aberrations")
+	> FreqPlotfocal(calls_focals, header="FrequencyPlot all aberrations")
+	> igvFiles(calls_focals)
 
 An R-vignette with more details on how to analyse this dataset is available with the package. 
 
