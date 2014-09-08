@@ -31,6 +31,15 @@ accession number GSE34575.
 
 An R-vignette with more details on how to analyse this dataset is available with the package. 
 
+## Changes and additions we are currently working on
+
+- [ ] Add warnings in igvPlot when data is provided without a focalCall run
+- [ ] Improve speed MaxPeaks detection
+- [x] Submit to BioConductor.org
+- [x] Add vignette with Bierkens example data
+- [x] Find source of warning message in MaxPeaks
+- [x] Add .txt file with known CNVs to release
+
 ## Contact
 
 We have tried to make the FocalCall readable and its use as easy as possible. If any questions arise regarding the package, or if you want to report any bugs, please do not hesitate and contact:
@@ -45,4 +54,4 @@ van de Wiel M.A. et al. (2011) Preprocessing and downstream analysis of microarr
 
 Bierkens M. et al. (2013) Focal aberrations indicate EYA2 and hsa-miR-375 as oncogene and tumor suppressor in cervical carcinogenesis. Genes Chromosomes Cancer, 52:56-68.
 
-Krijgsman O. et al. (2014) Focal chromosomal copy number aberrations in cancer - Needles in the genome haystack. BBA- molecular cell research.
+Krijgsman O, et al (2014) Focal chromosomal copy number aberrations in cancer-Needles in a genome haystack. Biochim Biophys Acta. 2014 Nov;1843(11):2698-2704.
