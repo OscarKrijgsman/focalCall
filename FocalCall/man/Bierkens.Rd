@@ -1,11 +1,12 @@
 \name{Bierkens}
 \docType{data}
 \alias{Bierkens}
+\alias{CGHset}
+\alias{CNVset}
 \title{Cervical cancer arrayCGH data}
 \description{
   Example dataset with arrayCGH data of cervical pre-cancer lesions. OF NOTE: this set contains only 8 samples from the data and only the complete probeset for chromosome 2. Complete dataset is available from GEO (GSE34575). 
 }	
-}
 \usage{Bierkens}
 \format{
 
@@ -35,6 +36,7 @@
    \item{start}{Basepair position that indicates start of CNV}
    \item{end}{Basepair position that indicates end of CNV}
   }
+}
 }
 \source{
  Bierkens, M., Krijgsman, O., Wilting, S.M., Bosch, L., Jaspers, A., Meijer, G.A., Meijer, C.J., Snijders, P.J., Ylstra, B., Steenbergen, R.D. (2013). Focal aberrations indicate EYA2 and hsa-miR-375 as oncogene and tumor suppressor in cervical carcinogenesis. \emph{Genes Chromosomes Cancer 52},56-68. 

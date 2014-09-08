@@ -5,6 +5,6 @@ Version: 1.0
 Date: 2014-08-19
 Author: Oscar Krijgsman 
 Maintainer: <oscarkrijgsman@gmail.com>
-Depends: CGHcall
+Depends: R(>= 2.10.0),  CGHcall
 Description: Detection of genomic focal aberrations in high-resolution DNA copy number data
 License: GPL-2

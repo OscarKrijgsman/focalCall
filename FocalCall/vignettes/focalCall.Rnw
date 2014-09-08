@@ -55,7 +55,7 @@ and amplifications and is applicable to high-resolution array and sequencing dat
 \section{Example}
 
 In this section we will use focalCall to analyse the dataset previously published by 
-Bierkens et al. (2013) and preprocessed using CGHcall by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
+\citep{Bierkens} Bierkens et al. (2013) and preprocessed using \citep{CGHcall} by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
 For the other chromosomes only a small portion of the CGH probes are included. The 
 complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
 accession number GSE34575.
