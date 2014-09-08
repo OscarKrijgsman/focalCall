@@ -3,13 +3,19 @@
 \alias{Bierkens}
 \title{Cervical cancer arrayCGH data}
 \description{
-  Example dataset with arrayCGH data of cervical pre-cancer lesions. OF NOTE: thi sset contains only 8 samples from the data and only the complete probeset for chromosome 2. Complete dataset is available from GEO (GSE34575). 
-  .RData file with: 
-  1) CGHset, a CGHcall object containing  8 cervical pre-curses cancer lesions. These samples were taken from  Bierkens et al. 2013 and available under GEO accession number GSE34575. 
-  2) CNVset, a bed file with CNV locations as provided by \url{http://dgv.tcag.ca/}	
+  Example dataset with arrayCGH data of cervical pre-cancer lesions. OF NOTE: this set contains only 8 samples from the data and only the complete probeset for chromosome 2. Complete dataset is available from GEO (GSE34575). 
+}	
 }
 \usage{Bierkens}
 \format{
+
+  This dataset contain two .Rdata files:
+  
+   \describe{
+   \item{CGHset}{a CGHcall object containing  8 cervical pre-curses cancer lesions. These samples were taken from  Bierkens et al. 2013 and available under GEO accession number GSE34575.}
+   \item{CNVset}{a bed file with CNV locations as provided by \url{http://dgv.tcag.ca/.}
+  }
+
   CGHset: A CGHcall object containing the following 8 samples:
 
   \describe{
