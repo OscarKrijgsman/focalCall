@@ -108,7 +108,7 @@ for (i in 1:max(focalList_short[,6])){
 # Set k as one when initiating loop
 	ifelse(i==1, k<-1, k<-k+1)
 	#cat("Display_",i, k, sep=" ", "\n")
-	MaxPeaks<-rbind(MaxPeaks, rep(0,14))
+	MaxPeaks<-rbind(MaxPeaks, rep(0,16))
 	MaxPeaks[k,1]<-focalList_short[index_temp[1],5]
 	MaxPeaks[k,2]<-focalList_short[index_temp[1],1]
 	MaxPeaks[k,3]<-focalList_short[index_temp[1],2]
