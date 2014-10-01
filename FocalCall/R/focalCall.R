@@ -201,7 +201,7 @@ if (CNVcalls==TRUE){
 cat("Generating output files...", "\n")
 
 # Summary matrix file
-write.table(MaxPeaks[,-1], file="Focals_list.txt", sep="\t", row.names=F)
+write.table(MaxPeaks[,-1], file="Focals_list.txt", sep="\t", row.names=FALSE)
 cat("Written text file to workDir...", "\n")
 
 
