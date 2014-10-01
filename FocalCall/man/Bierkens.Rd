@@ -3,6 +3,7 @@
 \alias{Bierkens}
 \alias{CGHset}
 \alias{CNVset}
+\alias{calls_focals}
 \title{Cervical cancer arrayCGH data}
 \description{
   Example dataset with arrayCGH data of cervical pre-cancer lesions. OF NOTE: this set contains only 8 samples from the data and only the complete probeset for chromosome 2. Complete dataset is available from GEO (GSE34575). 
@@ -10,7 +11,7 @@
 \usage{Bierkens}
 \format{
 
-  This dataset contain two .Rdata files:
+  This dataset contain two files:
   
    \describe{
    \item{CGHset}{a CGHcall object containing  8 cervical pre-curses cancer lesions. These samples were taken from  Bierkens et al. 2013 and available under GEO accession number GSE34575.}
@@ -36,6 +37,13 @@
    \item{start}{Basepair position that indicates start of CNV}
    \item{end}{Basepair position that indicates end of CNV}
   }
+   
+  calls_focals: results file after running focalCall on the samples described above:
+
+  \describe{
+   \item{calls_focals}{results file of class \code{cghCall}}
+  }
+  
 }
 }
 \source{

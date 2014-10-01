@@ -102,57 +102,57 @@ colnames(MaxPeaks)<-c("index","Chromo","BPstart","BPend","MB","Peak_start","Peak
 
 cat("Start detection of peak regions...", "\n")
 # get each region
-uni.peak<-unique(focalList_short[,6])
-for (i in 1:max(focalList_short[,6])){
-	index_temp<-which(focalList_short[,6]==uni.peak[i])
+uni.peak<-unique(focalList_short[,"focalSegment"])
+for (i in 1:max(focalList_short[,"focalSegment"])){
+	index_temp<-which(focalList_short[,"focalSegment"]==uni.peak[i])
 # Set k as one when initiating loop
 	ifelse(i==1, k<-1, k<-k+1)
 	#cat("Display_",i, k, sep=" ", "\n")
 	MaxPeaks<-rbind(MaxPeaks, rep(0,16))
-	MaxPeaks[k,1]<-focalList_short[index_temp[1],5]
-	MaxPeaks[k,2]<-focalList_short[index_temp[1],1]
-	MaxPeaks[k,3]<-focalList_short[index_temp[1],2]
-	MaxPeaks[k,4]<-focalList_short[max(index_temp),3]
-	MaxPeaks[k,5]<-(as.numeric(MaxPeaks[k,4])-as.numeric(MaxPeaks[k,3]))/1000000
-#if(length(unique(focalList_short[index_temp,5]))==1 & length(unique(focalList_short[index_temp,6]))==1){
-	if(length(unique(focalList_short[index_temp,4]))==1){
+	MaxPeaks[k,"index"]<-focalList_short[index_temp[1],"index"]
+	MaxPeaks[k,"Chromo"]<-focalList_short[index_temp[1],"Chromo"]
+	MaxPeaks[k,"BPstart"]<-focalList_short[index_temp[1],"BPstart"]
+	MaxPeaks[k,"BPend"]<-focalList_short[max(index_temp),"BPend"]
+	MaxPeaks[k,"MB"]<-(as.numeric(MaxPeaks[k,"BPend"])-as.numeric(MaxPeaks[k,"BPstart"]))/1000000
+
+	if(length(unique(focalList_short[index_temp,"focal"]))==1){
 		cat("Simple_", i, "\n")
-		MaxPeaks[k,6]<-MaxPeaks[k,3]
-		MaxPeaks[k,7]<-MaxPeaks[k,4]
-		MaxPeaks[k,8]<-focalList_short[index_temp[1],5]
-		MaxPeaks[k,9]<-focalList_short[max(index_temp),5]
+		MaxPeaks[k,"Peak_start"]<-MaxPeaks[k,"BPstart"]
+		MaxPeaks[k,"Peak_end"]<-MaxPeaks[k,"BPend"]
+		MaxPeaks[k,"Start_index"]<-focalList_short[index_temp[1],"index"]
+		MaxPeaks[k,"End_index"]<-focalList_short[max(index_temp),"index"]
 	}
-#if(length(unique(focalList_short[index_temp,5]))!=1 | length(unique(focalList_short[index_temp,6]))!=1){
+
 	if(length(unique(focalList_short[index_temp,4]))!=1){
 		cat("Complex_", i, "\n")
 		#rm(peak_region)
 		peak_region<-.getPeaks(focalList_short[index_temp,])
 		if (length(peak_region)==2){
-			MaxPeaks[k,6]<-focalList_short[index_temp[peak_region[1]],2]
-			MaxPeaks[k,7]<-focalList_short[index_temp[peak_region[2]],3]
-			MaxPeaks[k,8]<-focalList_short[index_temp[peak_region[1]],5]
-			MaxPeaks[k,9]<-focalList_short[index_temp[peak_region[2]],5]
+			MaxPeaks[k,"Peak_start"]<-focalList_short[index_temp[peak_region[1]],"BPstart"]
+			MaxPeaks[k,"Peak_end"]<-focalList_short[index_temp[peak_region[2]],"BPend"]
+			MaxPeaks[k,"Start_index"]<-focalList_short[index_temp[peak_region[1]],"index"]
+			MaxPeaks[k,"End_index"]<-focalList_short[index_temp[peak_region[2]],"index"]
 		}
 		if (length(peak_region)>2){
 			for (j in 1:nrow(peak_region)){
 				if (j==1){
-					MaxPeaks[k,6]<-focalList_short[index_temp[peak_region[j,1]],2]
-					MaxPeaks[k,7]<-focalList_short[index_temp[peak_region[j,2]],3]
-					MaxPeaks[k,8]<-focalList_short[index_temp[peak_region[j,1]],5]
-					MaxPeaks[k,9]<-focalList_short[index_temp[peak_region[j,2]],5]
+					MaxPeaks[k,"Peak_start"]<-focalList_short[index_temp[peak_region[j,1]],"BPstart"]
+					MaxPeaks[k,"Peak_end"]<-focalList_short[index_temp[peak_region[j,2]],"BPend"]
+					MaxPeaks[k,"Start_index"]<-focalList_short[index_temp[peak_region[j,1]],"index"]
+					MaxPeaks[k,"End_index"]<-focalList_short[index_temp[peak_region[j,2]],"index"]
 				}
 				if (j>1){
 					MaxPeaks<-rbind(MaxPeaks, rep(0,14))
 					k<-k+1
-					MaxPeaks[k,1]<-focalList_short[index_temp[1],5]
-					MaxPeaks[k,2]<-focalList_short[index_temp[1],1]
-					MaxPeaks[k,3]<-focalList_short[index_temp[1],2]
-					MaxPeaks[k,4]<-focalList_short[index_temp[length(index_temp)],3]
-					MaxPeaks[k,5]<-(as.numeric(MaxPeaks[k,4])-as.numeric(MaxPeaks[k,3]))/1000000
-					MaxPeaks[k,6]<-focalList_short[index_temp[peak_region[j,1]],2]
-					MaxPeaks[k,7]<-focalList_short[index_temp[peak_region[j,2]],3]
-					MaxPeaks[k,8]<-focalList_short[index_temp[peak_region[j,1]],5]
-					MaxPeaks[k,9]<-focalList_short[index_temp[peak_region[j,2]],5]
+					MaxPeaks[k,"index"]<-focalList_short[index_temp[1],"index"]
+					MaxPeaks[k,"Chromo"]<-focalList_short[index_temp[1],"Chromo"]
+					MaxPeaks[k,"BPstart"]<-focalList_short[index_temp[1],"BPstart"]
+					MaxPeaks[k,"BPend"]<-focalList_short[index_temp[length(index_temp)],3]
+					MaxPeaks[k,"MB"]<-(as.numeric(MaxPeaks[k,4])-as.numeric(MaxPeaks[k,3]))/1000000
+					MaxPeaks[k,"Peak_start"]<-focalList_short[index_temp[peak_region[j,1]],2]
+					MaxPeaks[k,"Peak_end"]<-focalList_short[index_temp[peak_region[j,2]],3]
+					MaxPeaks[k,"Start_index"]<-focalList_short[index_temp[peak_region[j,1]],5]
+					MaxPeaks[k,"End_index"]<-focalList_short[index_temp[peak_region[j,2]],5]
 				}
 			}
 		}
@@ -169,19 +169,19 @@ if (CNVcalls==FALSE){
 }
 
 for (i in 1:nrow(MaxPeaks)){
-	MaxPeaks[i,10]<-length(which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,8]),]>0))
-	MaxPeaks[i,11]<-length(which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,8]),]<0))
-	MaxPeaks[i,12]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,8]),]>0))
-	MaxPeaks[i,13]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,8]),]<0))
+	MaxPeaks[i,"Freq_gain"]<-length(which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,"Start_index"]),]>0))
+	MaxPeaks[i,"Freq_loss"]<-length(which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,"Start_index"]),]<0))
+	MaxPeaks[i,"Total_gain"]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,"Start_index"]),]>0))
+	MaxPeaks[i,"Total_loss"]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,"Start_index"]),]<0))
 	# Add HDs and Amplification
-	MaxPeaks[i,14]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,8]),]==1))
-	MaxPeaks[i,15]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,8]),]== (-1)))
+	MaxPeaks[i,"freq_Amps"]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,"Start_index"]),]==2))
+	MaxPeaks[i,"Freq_HDs"]<-length(which(calls(CGHset)[as.numeric(MaxPeaks[i,"Start_index"]),]== (-2)))
 	
 	if (CNVcalls==TRUE){	
-		MaxPeaks[i,16]<-length(which(assayDataElement(CGHset, 'matchedNormal')[as.numeric(MaxPeaks[i,8]),which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,8]),]!=0)]!=0))}
+		MaxPeaks[i,"CNV_call"]<-length(which(assayDataElement(CGHset, 'matchedNormal')[as.numeric(MaxPeaks[i,"Start_index"]),which(assayDataElement(CGHset, 'focal')[as.numeric(MaxPeaks[i,"Start_index"]),]!=0)]!=0))}
 	if (CNVcalls==FALSE){
-		tmp.cnv<-sum(fData(CGHset)$CNV[MaxPeaks[i,8]:MaxPeaks[i,9]])
-		MaxPeaks[i,16]<-tmp.cnv/length(MaxPeaks[i,8]:MaxPeaks[i,9])} 
+		tmp.cnv<-sum(fData(CGHset)$CNV[MaxPeaks[i,"Start_index"]:MaxPeaks[i,"End_index"]])
+		MaxPeaks[i,"CNV_call"]<-tmp.cnv/length(MaxPeaks[i,"Start_index"]:MaxPeaks[i,"End_index"])} 
 }
 
 

@@ -33,7 +33,7 @@ the Netherlands
 
 \begin{center}
 
-{\tt o.krijgsman@vumc.nl}
+{\tt o.krijgsman@nki.nl}
 {\tt oscarkrijgsman@gmail.com}
 \end{center}
 
@@ -114,5 +114,11 @@ igvFiles(calls_focals)
 %\newpage
 \bibliographystyle{apalike}
 \bibliography{focalCall}
+
+\pagebreak
+
+<<echo=TRUE,print=FALSE>>=
+sessionInfo()
+@
 
 \end{document}
