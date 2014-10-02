@@ -45,6 +45,11 @@
   }
   
 }
+
+\value{
+	No values are returned. This is an example dataset. 
+}
+
 }
 \source{
  Bierkens, M., Krijgsman, O., Wilting, S.M., Bosch, L., Jaspers, A., Meijer, G.A., Meijer, C.J., Snijders, P.J., Ylstra, B., Steenbergen, R.D. (2013). Focal aberrations indicate EYA2 and hsa-miR-375 as oncogene and tumor suppressor in cervical carcinogenesis. \emph{Genes Chromosomes Cancer 52},56-68. 
