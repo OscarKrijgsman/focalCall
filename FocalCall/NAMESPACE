@@ -2,8 +2,6 @@ exportPattern("^[^\\.]")
 # Import all packages listed as Imports or Depends
 
 import(CGHcall)
-import(CGHbase)
-import(Biobase)
 
 # export 
 #exportClasses(cghCall)

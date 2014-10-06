@@ -8,8 +8,8 @@ FreqPlotfocal<-function(calls, header="FrequencyPlot focal aberrations"){
 	n<-dim(focal.call)
 	cat("n", "\t")
 	
-	Gains<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
-	Losses<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
+	Gains<-matrix(data=0, ncol=ncol(calls), nrow=nrow(calls))
+	Losses<-matrix(data=0, ncol=ncol(calls), nrow=nrow(calls))
 
 	Gains[which(focal.call>0)]<- 1
 	Losses[which(focal.call<0)]<- 1

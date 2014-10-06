@@ -1,5 +1,5 @@
 %\VignetteIndexEntry{focalCall}
-%\VignetteDepends{}
+%\VignetteDepends{CGHcall}
 %\VignetteKeywords{Calling aberrations for array CGH tumor profiles.}
 %\VignettePackage{focalCall}
 
@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{center}
-Department of Pathology\\
+Department of Pathology
 VU University Medical Center
 the Netherlands
 Current adres:
@@ -46,15 +46,15 @@ the Netherlands
 
 To identify somatic focal copy number aberrations (CNAs) in cancer specimens and 
 distinguish them from germ-line copy number variations (CNVs) we developed a software 
-package named, \pkg{focalCall}. \pkg{focalCall} permits user-defined size cut-offs to recognize focal aberrations and builds on established array CGH segmentation and calling algorithms. 
+package named, focalCall. focalCall permits user-defined size cut-offs to recognize focal aberrations and builds on established array CGH segmentation and calling algorithms. 
 To differentiate CNAs from CNVs the algorithm can either make use of a matched normal 
-reference signal or, if this is not available, an external CNV track. \pkg{focalCall} 
+reference signal or, if this is not available, an external CNV track. focalCall
 furthermore differentiates between homozygous and hemizygous deletions as well as gains 
 and amplifications and is applicable to high-resolution array and sequencing data. 
 
 \section{Example}
 
-In this section we will use \pkg{focalCall} to analyse the dataset previously published by 
+In this section we will use focalCall to analyse the dataset previously published by 
 \citep{Bierkens} Bierkens et al. (2013) and preprocessed using \citep{CGHcall} by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
 For the other chromosomes only a small portion of the CGH probes are included. The 
 complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 

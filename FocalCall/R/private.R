@@ -5,8 +5,8 @@
 ## 
 .getSegments<-function(Segs, Chromo){
 	# Count segments
-	Segment.count<-matrix(data=0, ncol=nrow(Segs), nrow=nrow(Segs))
-	for (j in 1:nrow(Segs)){
+	Segment.count<-matrix(data=0, ncol=ncol(Segs), nrow=nrow(Segs))
+	for (j in 1:ncol(Segs)){
 		k=1
 		test.data<-Segs[,j]
 		for (i in 1:length(test.data)){
