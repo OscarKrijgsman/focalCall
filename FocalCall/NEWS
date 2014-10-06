@@ -1,0 +1,30 @@
+Changes in version 0.99.2 (2014-10-06)
+-------------------------------------
+
+IMPROVEMENTS
+
+	o Added initial unit testing
+	o Fixed indenting in .Rd files
+	o Added this NEWS file
+	o Changed all hard coded column numbers to name of column
+	o Added example to BierkensCNA.Rd
+	o Changed names example data ("BierkensCNA")
+	o Fixed NAMESPACE file
+	o 
+		
+Changes in version 0.99.1 (2014-10-02)
+-------------------------------------
+
+IMPROVEMENTS
+
+	o Changed F to FALSE
+	o Fixed /value section in man pages
+	o Added runnable examples for all man pages
+	o Updated DESCRIPTION file
+
+Changes in version 0.99.0 (2014-04-14)
+-------------------------------------
+
+RELEASE
+
+    o initial submitted version
