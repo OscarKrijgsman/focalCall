@@ -33,8 +33,9 @@ the Netherlands
 
 \begin{center}
 
-{\tt o.krijgsman@nki.nl}
 {\tt oscarkrijgsman@gmail.com}
+{\tt o.krijgsman@nki.nl}
+
 \end{center}
 
 
@@ -45,16 +46,15 @@ the Netherlands
 
 To identify somatic focal copy number aberrations (CNAs) in cancer specimens and 
 distinguish them from germ-line copy number variations (CNVs) we developed a software 
-package named, FocalCall. FocalCall permits user-defined size cut-offs to recognize focal 
-aberrations and builds on established array CGH segmentation and calling algorithms. 
+package named, \pkg{focalCall}. \pkg{focalCall} permits user-defined size cut-offs to recognize focal aberrations and builds on established array CGH segmentation and calling algorithms. 
 To differentiate CNAs from CNVs the algorithm can either make use of a matched normal 
-reference signal or, if this is not available, an external CNV track. FocalCall 
+reference signal or, if this is not available, an external CNV track. \pkg{focalCall} 
 furthermore differentiates between homozygous and hemizygous deletions as well as gains 
 and amplifications and is applicable to high-resolution array and sequencing data. 
 
 \section{Example}
 
-In this section we will use focalCall to analyse the dataset previously published by 
+In this section we will use \pkg{focalCall} to analyse the dataset previously published by 
 \citep{Bierkens} Bierkens et al. (2013) and preprocessed using \citep{CGHcall} by Wiel et al. (2007). The example set used here only contains complete chromosome 2. 
 For the other chromosomes only a small portion of the CGH probes are included. The 
 complete dataset can be downloaded from the NCBI Gene Expression Omnibus (GEO), 
@@ -100,8 +100,7 @@ FreqPlotfocal(calls_focals, header="FrequencyPlot all aberrations")
 
 \pagebreak
 \noindent
-Alternatively, we can generate files for visualisation in IGV with {\tt igvFiles}. The files will be written 
-to the home directory and can be loaded in IGV directly. 
+Alternatively, we can generate files for visualisation in IGV with {\tt igvFiles}. The files will be written to the home directory and can be loaded in IGV directly. 
 
 \begin{center}
 <<echo=TRUE,print=FALSE>>=
@@ -117,6 +116,9 @@ igvFiles(calls_focals)
 
 \pagebreak
 
+\section{Session Information}
+
+The version number of R and packages loaded for generating the vignette were:
 <<echo=TRUE,print=FALSE>>=
 sessionInfo()
 @

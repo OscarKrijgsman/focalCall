@@ -85,20 +85,24 @@ if (CNVcalls==TRUE){
 tmp.focal<-matrix(data=0, ncol=ncol(calls(CGHset)), nrow=nrow(calls(CGHset)))
 tmp.focal[which(assayDataElement(CGHset, 'focal')!=0)]<-1
 focalList<-data.frame(chromosomes(CGHset), bpstart(CGHset), bpend(CGHset),rowSums(tmp.focal))
-focalList<-data.frame(focalList, rep(0,nrow(focalList)))
-focalList[,5]<-1:nrow(focalList)
+focalList<-data.frame(focalList, rep(0,nrow(focalList)), rep(0,nrow(focalList)))
+colnames(focalList)<-c("Chromo", "BPstart", "BPend", "focal", "index", "focalSegment")
+focalList[,"index"]<-1:nrow(focalList)
 
 ### Only get focals that are recurrent
-focalList_short<-focalList[which(focalList[,4]>(minFreq-1)),]
-focalList_short[,6]<-.getSegments_increase(focalList_short[,5], focalList_short[,1])
-colnames(focalList_short)<-c("Chromo", "BPstart", "BPend", "focal", "index", "focalSegment")
+focalList_short<-focalList[which(focalList[,"focal"]>(minFreq-1)),]
+focalList_short[,"focalSegment"]<-.getSegments_increase(focalList_short[,"index"], focalList_short[,"Chromo"])
 
 #######################################
 # Matrix generation focal aberrations #
 #######################################
 
 MaxPeaks<-matrix(data=0, ncol=16, nrow=2)
-colnames(MaxPeaks)<-c("index","Chromo","BPstart","BPend","MB","Peak_start","Peak_end","Start_index","End_index","Freq_gain","Freq_loss", "Total_gain","Total_loss","freq_Amps","Freq_HDs","CNV_call")
+colnames(MaxPeaks)<-c("index","Chromo",
+	"BPstart","BPend","MB","Peak_start",
+	"Peak_end","Start_index","End_index",
+	"Freq_gain","Freq_loss", "Total_gain",
+	"Total_loss","freq_Amps","Freq_HDs","CNV_call")
 
 cat("Start detection of peak regions...", "\n")
 # get each region
@@ -123,7 +127,7 @@ for (i in 1:max(focalList_short[,"focalSegment"])){
 		MaxPeaks[k,"End_index"]<-focalList_short[max(index_temp),"index"]
 	}
 
-	if(length(unique(focalList_short[index_temp,4]))!=1){
+	if(length(unique(focalList_short[index_temp,"focal"]))!=1){
 		cat("Complex_", i, "\n")
 		#rm(peak_region)
 		peak_region<-.getPeaks(focalList_short[index_temp,])

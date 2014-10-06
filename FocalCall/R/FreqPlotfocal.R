@@ -7,15 +7,16 @@ FreqPlotfocal<-function(calls, header="FrequencyPlot focal aberrations"){
 	n_sam<-ncol(focal.call)
 	n<-dim(focal.call)
 	cat("n", "\t")
-	Gains<-matrix(data=0, ncol=n[2], nrow=n[1])
-	Losses<-matrix(data=0, ncol=n[2], nrow=n[1])
+	
+	Gains<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
+	Losses<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
 
 	Gains[which(focal.call>0)]<- 1
 	Losses[which(focal.call<0)]<- 1
 
 	Gain_sum<-rowSums(Gains)
 	Loss_sum<-rowSums(Losses)
-
+		
 ### Color focals and CNVs
 	color.gain<-rep("grey", nrow(Gains))
 	color.gain[which(fData(calls)$CNV==0 & Gain_sum!=0)]<-"red"

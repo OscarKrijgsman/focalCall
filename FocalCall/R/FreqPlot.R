@@ -3,9 +3,8 @@ FreqPlot<-function(calls, header="FrequencyPlot all aberrations"){
 	Calls<-calls(calls)
 
 	n_sam<-ncol(Calls)
-	n<-dim(Calls)
-	Gains<-matrix(data=0, ncol=n[2], nrow=n[1])
-	Losses<-matrix(data=0, ncol=n[2], nrow=n[1])
+	Gains<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
+	Losses<-matrix(data=0, ncol=ncol(Calls), nrow=nrow(Calls))
 
 	Gains[which(Calls>0)]<- 1
 	Losses[which(Calls<0)]<- 1

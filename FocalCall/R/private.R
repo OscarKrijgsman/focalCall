@@ -5,8 +5,8 @@
 ## 
 .getSegments<-function(Segs, Chromo){
 	# Count segments
-	Segment.count<-matrix(data=0, ncol=dim(Segs)[2], nrow=length(Segs[,1]))
-	for (j in 1:dim(Segs)[2]){
+	Segment.count<-matrix(data=0, ncol=nrow(Segs), nrow=nrow(Segs))
+	for (j in 1:nrow(Segs)){
 		k=1
 		test.data<-Segs[,j]
 		for (i in 1:length(test.data)){
@@ -23,7 +23,7 @@
 .getSegments_increase<-function(Segs, Chromo){
 	# Count segments
 	Segment.count<-matrix(data=0, ncol=1, nrow=length(Segs))
-	#for (j in 1:dim(Segs)[2]){
+	#for (j in 1:nrow(Segs)){
 		k=1
 		test.data<-Segs#[,j]
 		for (i in 1:length(test.data)){
