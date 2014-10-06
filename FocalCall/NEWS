@@ -1,3 +1,11 @@
+Changes in version 0.99.3 (2014-10-06)
+-------------------------------------
+
+IMPROVEMENTS
+
+	o Fixed unit tests
+	o Changed column names in CNVset in example data
+
 Changes in version 0.99.2 (2014-10-06)
 -------------------------------------
 
@@ -10,7 +18,6 @@ IMPROVEMENTS
 	o Added example to BierkensCNA.Rd
 	o Changed names example data ("BierkensCNA")
 	o Fixed NAMESPACE file
-	o 
 		
 Changes in version 0.99.1 (2014-10-02)
 -------------------------------------

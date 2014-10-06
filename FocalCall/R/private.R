@@ -37,16 +37,16 @@
 
 ## Matching CNV regions to arrayCGHprobes or CN-seq bins
 .match_CNV2CGH<-function(calls, CNVlist){
-CNVlist[,1]<-paste(gsub("chr", "", CNVlist[,"V1"]))
-CNVlist[which(CNVlist[,1]=="X"),"V1"]<-"23"
+CNVlist[,1]<-paste(gsub("chr", "", CNVlist[,"Chromosome"]))
+CNVlist[which(CNVlist[,"Chromosome"]=="X"),1]<-"23"
 	CNV.probe<-rep(0,length(bpstart(calls)))
 	for (i in 1:length(unique(chromosomes(calls)))){
-		CNVlist.tmp<-CNVlist[which(CNVlist[,1]==i),]
+		CNVlist.tmp<-CNVlist[which(CNVlist[,"Chromosome"]==i),]
 		BPstart.tmp<-bpstart(calls)[chromosomes(calls)==i]
 		BPend.tmp<-bpend(calls)[chromosomes(calls)==i]
 		temp<-NULL
 		for (j in 1:nrow(CNVlist.tmp)){
-			tmp.temp<-which(BPstart.tmp<as.numeric(paste(CNVlist.tmp[j,"V3"])) & BPend.tmp>as.numeric(paste(CNVlist.tmp[j,"V2"])))
+			tmp.temp<-which(BPstart.tmp<as.numeric(paste(CNVlist.tmp[j,"End"])) & BPend.tmp>as.numeric(paste(CNVlist.tmp[j,"Start"])))
 			temp<-c(temp, tmp.temp)
 		}
 		CNV.probe[which(chromosomes(calls)==i)][temp]<-1
