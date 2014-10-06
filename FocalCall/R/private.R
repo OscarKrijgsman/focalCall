@@ -37,8 +37,8 @@
 
 ## Matching CNV regions to arrayCGHprobes or CN-seq bins
 .match_CNV2CGH<-function(calls, CNVlist){
-CNVlist[,1]<-paste(gsub("chr", "", CNVlist[,1]))
-CNVlist[which(CNVlist[,1]=="X"),1]<-"23"
+CNVlist[,1]<-paste(gsub("chr", "", CNVlist[,"V1"]))
+CNVlist[which(CNVlist[,1]=="X"),"V1"]<-"23"
 	CNV.probe<-rep(0,length(bpstart(calls)))
 	for (i in 1:length(unique(chromosomes(calls)))){
 		CNVlist.tmp<-CNVlist[which(CNVlist[,1]==i),]
@@ -46,7 +46,7 @@ CNVlist[which(CNVlist[,1]=="X"),1]<-"23"
 		BPend.tmp<-bpend(calls)[chromosomes(calls)==i]
 		temp<-NULL
 		for (j in 1:nrow(CNVlist.tmp)){
-			tmp.temp<-which(BPstart.tmp<as.numeric(paste(CNVlist.tmp[j,3])) & BPend.tmp>as.numeric(paste(CNVlist.tmp[j,2])))
+			tmp.temp<-which(BPstart.tmp<as.numeric(paste(CNVlist.tmp[j,"V3"])) & BPend.tmp>as.numeric(paste(CNVlist.tmp[j,"V2"])))
 			temp<-c(temp, tmp.temp)
 		}
 		CNV.probe[which(chromosomes(calls)==i)][temp]<-1
@@ -59,11 +59,11 @@ CNVlist[which(CNVlist[,1]=="X"),1]<-"23"
 ## Identify peak region or multiple regions
 .getPeaks<-function(input){
 	nr<-nrow(input)
-	max_height<-max(input[,4])
+	max_height<-max(input[,"focal"])
 	
 # First part, will finish when 1 peak found
 	for (i in 3:max_height){
-		temp.input<-which(input[,4]>i | input[,4]==i)
+		temp.input<-which(input[,"focal"]>i | input[,"focal"]==i)
 		
 		finished<-FALSE
 		
@@ -77,31 +77,31 @@ CNVlist[which(CNVlist[,1]=="X"),1]<-"23"
 # Second part when more than 1 peak found
 	if (finished==FALSE){
 		i=1
-		temp.input<-which(input[,4]>i | input[,4]==i)		
-		uni.regions<-rep(0,length(input[,4]))
+		temp.input<-which(input[,"focal"]>i | input[,"focal"]==i)		
+		uni.regions<-rep(0,length(input[,"focal"]))
 		z<-1
 		uni.regions[1]<-1
-		for (i in 2:length(input[,4])){
-			ifelse(input[i-1,4]==input[i,4], z<-z, z<-z+1)
+		for (i in 2:length(input[,"focal"])){
+			ifelse(input[i-1,"focal"]==input[i,"focal"], z<-z, z<-z+1)
 			uni.regions[i]<-z
 		}
 		uni.reg<-unique(uni.regions)
-		freq.call<-rep(0,length(input[,4]))
+		freq.call<-rep(0,length(input[,"focal"]))
 		for (i in 1:max(uni.reg)){
 			index.temp<-which(uni.regions==uni.reg[i])
 
 			if (i==1){
 				index.temp2<-which(uni.regions==uni.reg[i+1])
-				if(input[index.temp[1],4]<input[index.temp2[1],4]) {freq.call[index.temp]<-1}
+				if(input[index.temp[1],"focal"]<input[index.temp2[1],"focal"]) {freq.call[index.temp]<-1}
 			}
 			if (i>1 & i<max(uni.reg)){
 				index.temp3<-which(uni.regions==uni.reg[i-1])
 				index.temp2<-which(uni.regions==uni.reg[i+1])
-				if(input[index.temp[1],4]<input[index.temp2[1],4] | input[index.temp[1],6]<input[index.temp3[1],6]) {freq.call[index.temp]<-1}
+				if(input[index.temp[1],"focal"]<input[index.temp2[1],"focal"] | input[index.temp[1],"focalSegment"]<input[index.temp3[1],"focalSegment"]) {freq.call[index.temp]<-1}
 			}
 			if (i==max(uni.reg)){
 				index.temp3<-which(uni.regions==uni.reg[i-1])
-				if(input[index.temp[1],4]<input[index.temp3[1],4]) {freq.call[index.temp]<-1}
+				if(input[index.temp[1],"focal"]<input[index.temp3[1],"focal"]) {freq.call[index.temp]<-1}
 			}
 		}
 		peaks<-unique(uni.regions[which(freq.call==0)])
