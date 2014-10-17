@@ -13,6 +13,7 @@ Author: Oscar Krijgsman
 Maintainer: Oscar Krijgsman <oscarkrijgsman@gmail.com>
 Depends: R(>= 2.10.0), CGHcall
 Suggests: RUnit, BiocGenerics
+URL: https://github.com/OscarKrijgsman/focalCall
 Description: Detection of genomic focal aberrations in high-resolution
         DNA copy number data
 License: GPL-2
