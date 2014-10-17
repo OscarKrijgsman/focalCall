@@ -1,12 +1,19 @@
 Package: focalCall
 Type: Package
 Title: Detection of focal aberrations in DNA copy number data
+<<<<<<< HEAD:FocalCall/DESCRIPTION
 Version: 0.99.4
 Date: 2014-09-06
 Author: Oscar Krijgsman 
+=======
+Version: 1.1.0
+Date: 2014-08-19
+Author: Oscar Krijgsman
+>>>>>>> 6a7250adfbd6edc990ea6e7444d7710957d6f022:DESCRIPTION
 Maintainer: Oscar Krijgsman <oscarkrijgsman@gmail.com>
-Depends: R(>= 2.10.0),  CGHcall
+Depends: R(>= 2.10.0), CGHcall
 Suggests: RUnit, BiocGenerics
-Description: Detection of genomic focal aberrations in high-resolution DNA copy number data
+Description: Detection of genomic focal aberrations in high-resolution
+        DNA copy number data
 License: GPL-2
 biocViews: Microarray,Preprocessing,Visualization,Sequencing
