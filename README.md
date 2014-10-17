@@ -35,8 +35,8 @@ An R-vignette with more details on how to analyse this dataset is available with
 
 ## Changes and additions we are currently working on
 
-- [ ] Add warnings in igvPlot when data is provided without a focalCall run
-- [ ] Improve speed MaxPeaks detection
+- [x] Add warnings in igvPlot when data is provided without a focalCall run
+- [x] Improve speed MaxPeaks detection
 - [x] Submit to BioConductor.org
 - [x] Add vignette with Bierkens example data
 - [x] Find source of warning message in MaxPeaks
