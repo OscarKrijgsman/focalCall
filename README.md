@@ -5,8 +5,10 @@ FocalCall: An R package for the annotation of focal copy number aberrations
 
 To identify somatic focal copy number aberrations (CNAs) in cancer specimens and distinguish them from germ-line copy number variations (CNVs) we developed a software package named, FocalCall. FocalCall permits user-defined size cut-offs to recognize focal aberrations and builds on established array CGH segmentation and calling algorithms. To differentiate CNAs from CNVs the algorithm can either make use of a matched normal reference signal or, if this is not available, an external CNV track. FocalCall furthermore differentiates between homozygous and hemizygous deletions as well as gains and amplifications and is applicable to high-resolution array and sequencing data. 
 
+Oscar Krijgsman, Christian Benner, Gerrit A Meijer, Mark A. van de Wiel and Bauke Ylstra. 
+Accepted for publication in Cancer Informatics
 
-FocalCall has been submitted to [Bioconductor](http://bioconductor.org/). 
+FocalCall is available from [Bioconductor](http://bioconductor.org/) as of version 3.0. 
 
 # Requirements:
 CGHcall and associated packages available from BioConductor [Wiel et al. 2011].
